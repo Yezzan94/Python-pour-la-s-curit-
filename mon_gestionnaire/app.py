@@ -13,7 +13,7 @@ app.register_blueprint(auth.auth)
 @app.route('/')
 def index():
     if 'username' in session:
-        return redirect(url_for('dashboard'))  # Assurez-vous que cette route existe
+        return redirect(url_for('template/dashboard'))  # Assurez-vous que cette route existe
     return redirect(url_for('auth.login'))
 
 @app.route('/dashboard')

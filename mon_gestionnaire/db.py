@@ -5,6 +5,8 @@ DATABASE = 'votre_base_de_donnees.db'
 
 def get_db():
     if 'db' not in g:
+        conn = sqlite3.connect(DATABASE)
+        conn.row_factory = sqlite3.Row
         g.db = sqlite3.connect(DATABASE)
         g.db.row_factory = sqlite3.Row
     return g.db
