@@ -25,7 +25,7 @@ def hash_password(password):
     """ Retourne le hachage SHA-256 du mot de passe fourni. """
     return hashlib.sha256(password.encode()).hexdigest()
 
-def register(conn, username, password):
+def register_user(conn, username, password):
     """ Enregistre un nouvel utilisateur avec son mot de passe haché et une clé de chiffrement. """
     try:
         key = Fernet.generate_key()
