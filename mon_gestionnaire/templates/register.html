@@ -63,8 +63,11 @@
             {% endif %}
         {% endwith %}
         <form action="/register" method="post">
+            <input type="text" name="name" placeholder="Nom" required>
+            <input type="text" name="email" placeholder="email" required>
             <input type="text" name="username" placeholder="Nom d'utilisateur" required>
             <input type="password" name="password" placeholder="Mot de passe" required>
+              <input type="password" name="confirmpassword" placeholder="Confirmez votre mot de passe" required>
             <button type="submit">S'inscrire</button>
             <div class="login-link">
                 <p>Déjà inscrit ? <a href="/">Connectez-vous</a></p>
