@@ -2,45 +2,42 @@ import sqlite3
 import hashlib
 from cryptography.fernet import Fernet
 
-def create_connection(db_file):
-    """ Établit une connexion à la base de données SQLite spécifiée par db_file. """
+def create_connection(db_file='votre_base_de_donnees.db'):
     try:
         conn = sqlite3.connect(db_file)
-        return conn, None
     except sqlite3.Error as error:
-        return None, str(error)
+        print(f"Erreur de connexion à la base de données: {error}")
+        return None  # Retourne None en cas d'erreur
+    return conn
 
-def setup_database(conn):
-    """ Crée les tables nécessaires dans la base de données si elles n'existent pas déjà. """
+def setup_database():
+    conn = create_connection()
     try:
-        c = conn.cursor()
-        c.execute('''CREATE TABLE IF NOT EXISTS users (username text PRIMARY KEY, password_hash text, key text)''')
-        c.execute('''CREATE TABLE IF NOT EXISTS passwords (username text, service text, password text)''')
-        conn.commit()
-        return True, None
-    except sqlite3.Error as error:
-        return False, str(error)
+        with conn:
+            conn.execute('''CREATE TABLE IF NOT EXISTS users (username text PRIMARY KEY, password_hash text, key text)''')
+            conn.execute('''CREATE TABLE IF NOT EXISTS passwords (username text, service text, password text)''')
+    finally:
+        conn.close()
 
 def hash_password(password):
-    """ Retourne le hachage SHA-256 du mot de passe fourni. """
     return hashlib.sha256(password.encode()).hexdigest()
 
-def register_user(conn, username, password):
-    """ Enregistre un nouvel utilisateur avec son mot de passe haché et une clé de chiffrement. """
+def register_user(username, password):
+    conn = create_connection()
     try:
         key = Fernet.generate_key()
         password_hash = hash_password(password)
-        c = conn.cursor()
-        c.execute("INSERT INTO users VALUES (?, ?, ?)", (username, password_hash, key))
-        conn.commit()
+        with conn:
+            conn.execute("INSERT INTO users VALUES (?, ?, ?)", (username, password_hash, key))
         return True, None
     except sqlite3.IntegrityError:
         return False, "Nom d'utilisateur déjà pris."
-    except sqlite3.Error as error:
-        return False, str(error)
+    finally:
+        conn.close()
 
-def login(conn, username, password):
-    """ Vérifie les identifiants de l'utilisateur et retourne un objet Fernet si la connexion réussit. """
+
+def login(username, password):
+    conn = create_connection()
     try:
         c = conn.cursor()
         c.execute("SELECT password_hash, key FROM users WHERE username=?", (username,))
@@ -48,23 +45,24 @@ def login(conn, username, password):
         if user and user[0] == hash_password(password):
             return Fernet(user[1]), None
         return None, "Nom d'utilisateur ou mot de passe incorrect."
-    except sqlite3.Error as error:
-        return None, str(error)
+    finally:
+        conn.close()
 
-def add_password(conn, cipher_suite, username, service, password):
-    """ Ajoute un mot de passe chiffré pour un utilisateur et un service spécifiques. """
+def add_password(username, service, password):
+    conn = create_connection()
     try:
+        cipher_suite = Fernet(generate_user_key(username, conn))
         encrypted_password = cipher_suite.encrypt(password.encode())
-        c = conn.cursor()
-        c.execute("INSERT INTO passwords VALUES (?, ?, ?)", (username, service, encrypted_password))
-        conn.commit()
+        with conn:
+            conn.execute("INSERT INTO passwords VALUES (?, ?, ?)", (username, service, encrypted_password))
         return True, None
-    except sqlite3.Error as error:
-        return False, str(error)
+    finally:
+        conn.close()
 
-def get_password(conn, cipher_suite, username, service):
-    """ Récupère et déchiffre le mot de passe d'un utilisateur pour un service spécifique. """
+def get_password(username, service):
+    conn = create_connection()
     try:
+        cipher_suite = Fernet(generate_user_key(username, conn))
         c = conn.cursor()
         c.execute("SELECT password FROM passwords WHERE username=? AND service=?", (username, service))
         result = c.fetchone()
@@ -72,5 +70,13 @@ def get_password(conn, cipher_suite, username, service):
             decrypted_password = cipher_suite.decrypt(result[0]).decode()
             return decrypted_password, None
         return None, "Service non trouvé."
-    except sqlite3.Error as error:
-        return None, str(error)
+    finally:
+        conn.close()
+
+def generate_user_key(username, conn):
+    c = conn.cursor()
+    c.execute("SELECT key FROM users WHERE username=?", (username,))
+    result = c.fetchone()
+    if result:
+        return result[0]
+    raise Exception("User key not found.")

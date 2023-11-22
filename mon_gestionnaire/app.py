@@ -1,65 +1,28 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
-import password_manager_backend as backend
+from flask import Flask, redirect, url_for, session
+from flask_wtf.csrf import CSRFProtect
+import db
+import auth
 
 app = Flask(__name__)
 app.secret_key = 'une_clé_secrète_ici'
+app.config['SECRET_KEY'] = 'une_autre_clé_secrète'
 
-# Création et configuration de la connexion à la base de données
-conn, db_error = backend.create_connection('votre_base_de_donnees.db')
-if db_error:
-    raise Exception(f"Erreur de connexion à la base de données: {db_error}")
+csrf = CSRFProtect(app)
+app.register_blueprint(auth.auth)
 
 @app.route('/')
 def index():
-    # Si l'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
     if 'username' in session:
-        return redirect(url_for('dashboard'))
-    return render_template('login.html')
-
-@app.route('/login', methods=['POST'])
-def login():
-    username = request.form['username']
-    password = request.form['password']
-    cipher_suite, error = backend.login(conn, username, password)
-    if cipher_suite:
-        session['username'] = username
-        return redirect(url_for('dashboard'))
-    else:
-        flash("Nom d'utilisateur ou mot de passe incorrect.")
-        return redirect(url_for('index'))
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if 'username' in session:
-        # Rediriger vers le tableau de bord si l'utilisateur est déjà connecté
-        return redirect(url_for('dashboard'))
-
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        # Appeler la fonction d'enregistrement du backend
-        success, error = backend.register_user(username, password)
-
-        if success:
-            flash("Inscription réussie. Veuillez vous connecter.")
-            return redirect(url_for('index'))
-        else:
-            flash(error or "Une erreur est survenue lors de l'inscription.")
-
-    return render_template('register.html')
+        return redirect(url_for('dashboard'))  # Assurez-vous que cette route existe
+    return redirect(url_for('auth.login'))
 
 @app.route('/dashboard')
 def dashboard():
     if 'username' not in session:
-        flash("Veuillez vous connecter pour accéder au tableau de bord.")
-        return redirect(url_for('index'))
-    return render_template('dashboard.html')
-
-@app.route('/logout')
-def logout():
-    session.pop('username', None)
-    return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
+    return render_template('dashboard.html')  # Assurez-vous que ce template existe
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.init_db()
     app.run(debug=True)
