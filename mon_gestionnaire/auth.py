@@ -1,57 +1,92 @@
+# Importations nécessaires pour la création de routes et l'affichage de templates dans Flask
 from flask import Blueprint, render_template, redirect, url_for, flash, session
+# Importation de FlaskForm pour la gestion des formulaires
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, validators
-import password_manager_backend as backend  # Assurez-vous que le chemin d'importation est correct
-from models import *
-from db import *  # Assurez-vous que vous importez la connexion à la base de données
+# Importation du modèle User et de l'instance db pour les interactions avec la base de données
+from models import User, db
+# Importation des classes de formulaires LoginForm et RegisterForm pour l'authentification
+from models import LoginForm, RegisterForm
 
-
+# Création d'un Blueprint nommé 'auth' pour organiser les routes liées à l'authentification
 auth = Blueprint('auth', __name__)
 
+# Définition de la route pour la connexion
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    # Vérifier si l'utilisateur est déjà connecté
     if 'username' in session:
-        return redirect(url_for('.dashboard'))
+        # Rediriger vers la page du tableau de bord si déjà connecté
+        return redirect(url_for('dashboard'))
 
+    # Création d'une instance du formulaire de connexion
     form = LoginForm()
+    # Vérification de la validité du formulaire après soumission
     if form.validate_on_submit():
+        # Récupération des données du formulaire
         username = form.username.data
         password = form.password.data
 
-        # Rechercher l'utilisateur par nom d'utilisateur
+        # Recherche de l'utilisateur dans la base de données
         user = User.query.filter_by(username=username).first()
 
+        # Vérification si l'utilisateur existe et si le mot de passe est correct
         if user and user.check_password(password):
-            # Le mot de passe correspond, connectez l'utilisateur
+            # Si authentification réussie, enregistrer le nom d'utilisateur dans la session
             session['username'] = username
-            return redirect(url_for('template/dashboard'))
+            # Redirection vers le tableau de bord
+            return redirect(url_for('dashboard'))
         else:
+            # Afficher un message d'erreur si les identifiants sont incorrects
             flash("Nom d'utilisateur ou mot de passe incorrect.")
 
+    # Afficher le formulaire de connexion
     return render_template('login.html', form=form)
 
+# Définition de la route pour la déconnexion
 @auth.route('/logout')
 def logout():
+    # Supprimer le nom d'utilisateur de la session
     session.pop('username', None)
+    # Rediriger vers la page de connexion
     return redirect(url_for('.login'))
 
+# Définition de la route pour l'inscription
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    # Si l'utilisateur est déjà connecté, rediriger vers le tableau de bord
     if 'username' in session:
-        return redirect(url_for('template/dashboard'))  # Assurez-vous que cette route existe
+        return redirect(url_for('dashboard'))
 
+    # Création d'une instance du formulaire d'inscription
     form = RegisterForm()
+    # Traitement du formulaire après soumission
     if form.validate_on_submit():
+        # Récupération des données du formulaire
         username = form.username.data
-        email = form.email.data  # Récupérez l'e-mail du formulaire
+        email = form.email.data  # Email n'est pas utilisé dans ce bloc mais pourrait être utilisé dans une version future
         password = form.password.data
-        # Implémentez la logique d'inscription dans backend
-        success, error = backend.register_user(conn, username, email, password)  # Passez la connexion en premier argument
 
-        if success:
+        # Vérification si l'utilisateur existe déjà dans la base de données
+        user = User.query.filter_by(username=username).first()
+        if user:
+            # Si l'utilisateur existe déjà, afficher un message d'erreur
+            flash("Nom d'utilisateur déjà pris.")
+            return render_template('register.html', form=form)
+
+        try:
+            # Création d'un nouvel utilisateur et ajout à la base de données
+            new_user = User(username=username, password=password)
+            db.session.add(new_user)
+            db.session.commit()  # Tentative de valider les modifications
+
+            # Si aucune exception n'est levée, flasher un message de succès
             flash("Inscription réussie. Veuillez vous connecter.")
-            return redirect(url_for('auth.login'))
-        else:
-            flash(error or "Une erreur est survenue lors de l'inscription.")
+            return redirect(url_for('.login'))  # Redirection vers la page de connexion
+        except Exception as e:
+            # Si une exception est levée, flasher un message d'erreur
+            flash("Une erreur est survenue lors de l'inscription.")
+            db.session.rollback()  # Annuler les modifications en cas d'erreur
 
+    # Afficher le formulaire d'inscription si aucune soumission valide n'a eu lieu
     return render_template('register.html', form=form)

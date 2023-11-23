@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    color: #333;
+}
+a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+a:hover {
+    background-color: #0056b3;
+}
+.message {
+    color: #d9534f;
+    margin-bottom: 20px;
+}

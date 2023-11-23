@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Gestionnaire de Mots de Passe</title>
-    <!-- Styles ici -->
+    <title>Dashboard</title> <!-- Titre de l'onglet pour la page de tableau de bord -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}"> <!-- Lien vers le fichier CSS -->
+
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Gestionnaire</span> de Mots de Passe</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ url_for('auth.logout') }}">Déconnexion</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <h1>Welcome to the Dashboard</h1> <!-- Titre principal de la page de tableau de bord -->
 
-    <div class="container">
-        <h1>Bienvenue dans votre Dashboard</h1>
-        <p>Vous pouvez gérer vos mots de passe ici.</p>
-        <!-- Ajoutez ici des fonctionnalités pour l'ajout, l'affichage et la suppression des mots de passe -->
-    </div>
+    <!-- Vérification de la présence du nom d'utilisateur dans la session -->
+    {% if 'username' in session %}
+        <!-- Si un utilisateur est connecté, affiche un message de bienvenue personnalisé -->
+        <p>Hello, {{ session['username'] }}!</p> <!-- Affiche le nom d'utilisateur de la session -->
+        <!-- Lien pour se déconnecter qui dirige vers la route de déconnexion définie dans 'auth' -->
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+    {% else %}
+        <!-- Si aucun utilisateur n'est connecté, invite à se connecter -->
+        <p>Please <a href="{{ url_for('auth.login') }}">login</a> to continue.</p>
+        <!-- Lien vers la page de connexion -->
+    {% endif %}
 </body>
 </html>

@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Gestionnaire de Mots de Passe</title>
-    <!-- Styles ici -->
+    <title>Login</title> <!-- Titre de la page de connexion -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <!-- Section pour les messages flash -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="flash-messages">
-                    {% for message in messages %}
-                        <p>{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        <form action="{{ url_for('auth.login') }}" method="post">
-            {{ form.hidden_tag() }}
-            {{ form.username.label }} {{ form.username }}
-            {{ form.password.label }} {{ form.password }}
-            <button type="submit">Login</button>
-            <div class="register-link">
-                <p>Vous n'avez pas de compte ? <a href="{{ url_for('auth.register') }}">Inscrivez-vous</a></p>
-            </div>
-        </form>
-    </div>
+    <h1>Login</h1> <!-- Titre principal de la page -->
+
+    <!-- Boucle pour afficher les messages flash (erreurs, notifications) -->
+    {% for message in get_flashed_messages() %}
+        <div>{{ message }}</div> <!-- Affichage de chaque message flash -->
+    {% endfor %}
+
+    <!-- Formulaire de connexion -->
+    <form method="post" action="{{ url_for('auth.login') }}">
+        {{ form.hidden_tag() }} <!-- Champ caché pour la protection CSRF -->
+
+        <!-- Champ de nom d'utilisateur -->
+        <div>
+            {{ form.username.label }} <!-- Étiquette pour le champ de nom d'utilisateur -->
+            {{ form.username(size=32) }} <!-- Champ de saisie pour le nom d'utilisateur -->
+        </div>
+
+        <!-- Champ de mot de passe -->
+        <div>
+            {{ form.password.label }} <!-- Étiquette pour le champ de mot de passe -->
+            {{ form.password(size=32) }} <!-- Champ de saisie pour le mot de passe -->
+        </div>
+
+        <!-- Bouton de soumission -->
+        <div>
+            <button type="submit">Login</button> <!-- Bouton pour soumettre le formulaire -->
+        </div>
+    </form>
+
+    <!-- Lien vers la page d'inscription -->
+    <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Register here</a>.</p>
 </body>
 </html>

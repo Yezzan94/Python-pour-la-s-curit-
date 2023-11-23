@@ -1,28 +1,18 @@
-import sqlite3
-from flask import g
+# Importation de la classe SQLAlchemy depuis l'extension flask_sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
-DATABASE = 'votre_base_de_donnees.db'
+# Création d'une instance globale de SQLAlchemy
+# Cette instance sera utilisée pour toutes les interactions avec la base de données
+db = SQLAlchemy()
 
-def get_db():
-    if 'db' not in g:
-        conn = sqlite3.connect(DATABASE)
-        conn.row_factory = sqlite3.Row
-        g.db = sqlite3.connect(DATABASE)
-        g.db.row_factory = sqlite3.Row
-    return g.db
+# Définition d'une fonction pour initialiser la base de données
+def init_db(app):
+    # Initialisation de l'instance SQLAlchemy avec l'application Flask
+    # Cela permet à SQLAlchemy de travailler avec la configuration et le contexte de l'application
+    db.init_app(app)
 
-def close_db(e=None):
-    db = g.pop('db', None)
-    if db is not None:
-        db.close()
-
-def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
-    return (rv[0] if rv else None) if one else rv
-
-def init_db():
-    db = get_db()
-    with open('schema.sql', 'r') as f:
-        db.executescript(f.read())
+    # Création d'un contexte d'application pour exécuter certaines tâches, comme la création de tables
+    with app.app_context():
+        # Création de toutes les tables définies dans les modèles
+        # Les modèles doivent hériter de db.Model et être importés avant cet appel
+        db.create_all()
