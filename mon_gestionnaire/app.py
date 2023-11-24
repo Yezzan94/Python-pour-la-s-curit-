@@ -12,8 +12,8 @@ from db import db, init_db
 # Création de l'application Flask
 app = Flask(__name__)
 # Configuration de la clé secrète de l'application, nécessaire pour la session et les tokens CSRF
-app.secret_key = 'une_clé_secrète_ici'
-app.config['SECRET_KEY'] = 'une_autre_clé_secrète'
+app.config['SECRET_KEY'] = 'une_clé_secrète_ici'
+
 # Configuration de l'URI de la base de données pour SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///votre_base_de_donnees.db'
 

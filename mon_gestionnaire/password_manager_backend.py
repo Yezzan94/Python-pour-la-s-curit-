@@ -1,48 +1,50 @@
-# Importation des modules nécessaires
-from models import db, User  # Importation du modèle User et de l'instance de base de données
-import hashlib  # Pour le hachage des mots de passe
-from cryptography.fernet import Fernet  # Pour le chiffrement
+from models import db, User, StoredPassword
+import hashlib
+from cryptography.fernet import Fernet
 
 def hash_password(password):
     """ Retourne le hachage SHA-256 du mot de passe fourni. """
-    # Utilisation de hashlib pour créer un hachage SHA-256 du mot de passe
     return hashlib.sha256(password.encode()).hexdigest()
 
 def register_user(username, password):
     """ Enregistre un nouvel utilisateur avec son mot de passe haché et une clé de chiffrement. """
     try:
-        # Génération d'une clé de chiffrement unique pour chaque utilisateur
-        key = Fernet.generate_key()
-        # Hachage du mot de passe fourni
+        key = Fernet.generate_key().decode()  # Générer et décoder la clé de chiffrement
         password_hash = hash_password(password)
-        # Création d'un nouvel utilisateur avec le nom d'utilisateur, le hachage du mot de passe et la clé de chiffrement
-        new_user = User(username=username, password=password_hash)
-        # Ajout du nouvel utilisateur à la session de base de données
+        new_user = User(username=username, password_hash=password_hash, key=key)
         db.session.add(new_user)
-        # Enregistrement des modifications dans la base de données
         db.session.commit()
         return True, None
     except Exception as error:
-        # En cas d'erreur, annuler les modifications
         db.session.rollback()
         return False, str(error)
 
 def login(username, password):
     """ Vérifie les identifiants de l'utilisateur et retourne un objet Fernet si la connexion réussit. """
-    # Recherche de l'utilisateur par son nom d'utilisateur
     user = User.query.filter_by(username=username).first()
-    # Vérification si l'utilisateur existe et si le mot de passe fourni correspond au hachage stocké
-    if user and user.password == hash_password(password):
-        # Retourne un objet Fernet pour le chiffrement/déchiffrement basé sur la clé de l'utilisateur
-        return Fernet(user.key), None
+    if user and user.check_password(password):
+        return Fernet(user.key.encode()), None  # Encodez la clé avant de l'utiliser
     return None, "Nom d'utilisateur ou mot de passe incorrect."
 
-def add_password(cipher_suite, username, service, password):
+def add_password(user_id, service, username, password):
     """ Ajoute un mot de passe chiffré pour un utilisateur et un service spécifiques. """
-    # Cette fonction doit être implémentée pour stocker les mots de passe chiffrés associés à un utilisateur et un service
-    pass
+    user = User.query.get(user_id)
+    if user:
+        cipher_suite = Fernet(user.key.encode())  # Encodez la clé avant de l'utiliser
+        encrypted_password = cipher_suite.encrypt(password.encode()).decode()
+        new_password = StoredPassword(user_id=user_id, service=service, username=username, encrypted_password=encrypted_password)
+        db.session.add(new_password)
+        db.session.commit()
+        return True, "Mot de passe ajouté avec succès."
+    return False, "Utilisateur non trouvé."
 
-def get_password(cipher_suite, username, service):
+def get_password(user_id, service):
     """ Récupère et déchiffre le mot de passe d'un utilisateur pour un service spécifique. """
-    # Cette fonction doit être implémentée pour récupérer et déchiffrer les mots de passe stockés
-    pass
+    user = User.query.get(user_id)
+    if user:
+        cipher_suite = Fernet(user.key.encode())  # Encodez la clé avant de l'utiliser
+        stored_password = StoredPassword.query.filter_by(user_id=user_id, service=service).first()
+        if stored_password:
+            decrypted_password = cipher_suite.decrypt(stored_password.encrypted_password.encode()).decode()
+            return decrypted_password, "Mot de passe récupéré avec succès."
+    return None, "Mot de passe non trouvé ou utilisateur non existant."
