@@ -4,16 +4,16 @@ from flask import Blueprint, render_template, redirect, url_for, flash, session
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, validators
 # Importation du modèle User et de l'instance db pour les interactions avec la base de données
-from models import User, db
-# Importation des classes de formulaires LoginForm et RegisterForm pour l'authentification
-from models import LoginForm, RegisterForm
-from models import User, db
+
 
 auth = Blueprint('auth', __name__)
 
 # Définition de la route pour la connexion
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    from models import LoginForm
+    from db import User
+
     # Vérifier si l'utilisateur est déjà connecté
     if 'username' in session:
         # Rediriger vers la page du tableau de bord si déjà connecté
@@ -56,9 +56,12 @@ def logout():
 # Définition de la route pour l'inscription
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    from models import RegisterForm
+    from db import User, db
     # Si l'utilisateur est déjà connecté, rediriger vers le tableau de bord
     if 'username' in session:
         return redirect(url_for('dashboard'))
+
 
     # Création d'une instance du formulaire d'inscription
     form = RegisterForm()

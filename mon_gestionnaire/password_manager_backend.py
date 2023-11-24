@@ -1,4 +1,5 @@
-from models import db, User, StoredPassword
+from models import db
+from db import User, StoredPassword
 import hashlib
 from cryptography.fernet import Fernet
 
