@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-# Importation de l'instance db depuis le fichier db.py pour l'utilisation de SQLAlchemy
-=======
->>>>>>> 606ec29541944193e3e1bc6991faea96f93e47f4
 from db import db
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, validators
