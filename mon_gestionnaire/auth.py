@@ -7,8 +7,8 @@ from wtforms import StringField, PasswordField, validators
 from models import User, db
 # Importation des classes de formulaires LoginForm et RegisterForm pour l'authentification
 from models import LoginForm, RegisterForm
+from models import User, db
 
-# Création d'un Blueprint nommé 'auth' pour organiser les routes liées à l'authentification
 auth = Blueprint('auth', __name__)
 
 # Définition de la route pour la connexion
@@ -21,6 +21,7 @@ def login():
 
     # Création d'une instance du formulaire de connexion
     form = LoginForm()
+
     # Vérification de la validité du formulaire après soumission
     if form.validate_on_submit():
         # Récupération des données du formulaire
@@ -42,6 +43,7 @@ def login():
 
     # Afficher le formulaire de connexion
     return render_template('login.html', form=form)
+
 
 # Définition de la route pour la déconnexion
 @auth.route('/logout')

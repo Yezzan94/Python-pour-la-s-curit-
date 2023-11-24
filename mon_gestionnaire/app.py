@@ -1,30 +1,29 @@
 # Importation des modules nécessaires pour la création d'une application Flask
 from flask import Flask, redirect, url_for, session, render_template
-# Importation de SQLAlchemy pour la gestion de la base de données
 from flask_sqlalchemy import SQLAlchemy
-# Importation de CSRFProtect pour la protection contre les attaques CSRF
-from flask_wtf.csrf import CSRFProtect
+from flask_migrate import Migrate
+
 # Importation du module auth qui contient les routes d'authentification
-import auth
-# Importation de l'instance de base de données et de la fonction d'initialisation de la base de données
-from db import db, init_db
+from auth import auth
 
 # Création de l'application Flask
 app = Flask(__name__)
+
 # Configuration de la clé secrète de l'application, nécessaire pour la session et les tokens CSRF
 app.secret_key = 'une_clé_secrète_ici'
 app.config['SECRET_KEY'] = 'une_autre_clé_secrète'
+
 # Configuration de l'URI de la base de données pour SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///votre_base_de_donnees.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my_database.db'
+db = SQLAlchemy(app)
 
-# Initialisation de l'instance de base de données avec l'application Flask
-db.init_app(app)
+# Initialisation de l'extension Flask-Migrate
+migrate = Migrate(app, db)
 
-# Initialisation de la protection CSRF pour l'application
-csrf = CSRFProtect(app)
+# Importez les blueprints après l'initialisation de l'application
 # Enregistrement du Blueprint 'auth' avec l'application Flask
 # Cela ajoute les routes définies dans le module 'auth' à l'application
-app.register_blueprint(auth.auth)
+app.register_blueprint(auth)
 
 # Définition de la route de la page d'accueil
 @app.route('/')
@@ -49,5 +48,6 @@ if __name__ == '__main__':
     # Création des tables de base de données dans un contexte d'application
     with app.app_context():
         db.create_all()
+
     # Lancement de l'application Flask en mode debug
     app.run(debug=True)

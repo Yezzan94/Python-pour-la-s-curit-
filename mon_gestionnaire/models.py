@@ -1,3 +1,4 @@
+
 # Importation de l'instance db depuis le fichier db.py pour l'utilisation de SQLAlchemy
 from db import db
 # Importations nécessaires pour créer des formulaires avec Flask-WTForms
@@ -6,11 +7,10 @@ from wtforms import StringField, PasswordField, validators
 # Importation de la bibliothèque hashlib pour le hachage des mots de passe
 import hashlib
 
-# Définition du modèle User pour représenter les utilisateurs dans la base de données
 class User(db.Model):
-    # Déclaration des colonnes de la table des utilisateurs
-    id = db.Column(db.Integer, primary_key=True)  # Identifiant unique pour chaque utilisateur
-    username = db.Column(db.String(80), unique=True, nullable=False)  # Nom d'utilisateur, unique et requis
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    # Autres colonnes de votre modèle
     password_hash = db.Column(db.String(120), nullable=False)  # Hachage du mot de passe, requis
 
     # Constructeur pour initialiser les instances de la classe User
