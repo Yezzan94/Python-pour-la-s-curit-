@@ -51,3 +51,4 @@ if __name__ == '__main__':
 
     # Lancement de l'application Flask en mode debug
     app.run(debug=True)
+
