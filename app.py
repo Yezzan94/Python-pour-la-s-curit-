@@ -1,10 +1,13 @@
 #Importation des modules nécessaires
-
+import logging
 from flask import Flask, render_template, request, session, redirect
 from flask_mongoengine import MongoEngine
 from flask_session import Session
 from modules.PasswordGenerator import PasswordGenerator
+from passlib.hash import pbkdf2_sha256
 from datetime import timedelta
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 #Initialisation de l'app Flask
 app = Flask(
@@ -14,20 +17,19 @@ app = Flask(
     template_folder='mon_gestionnaire/templates',
 )
 
-# Configuration de la durée de vie de la session (ex: 30 minutes)
+# Configuration des sessions et de la base de données
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=2)
-#Configuration des sessions
+app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
-
-# Configuration de la base de données MongoDB
 app.config['MONGODB_SETTINGS'] = {
     'db': 'password_manager',
     'host': 'localhost',
     'port': 27017
 }
-db = MongoEngine(app)# Initialisation de l'ORM MongoEngine avec l'application Flask
+Session(app)
+db = MongoEngine(app)
 
 # Définition des modèles de données
 class NewUser(db.Document):
@@ -60,7 +62,6 @@ class Passwords(db.Document):
             "password": self.password,
         }
 
-# Server
 
 
 @app.route('/')
@@ -75,24 +76,20 @@ def login():
 
 @app.route('/login.py', methods=['POST', 'GET'])
 def login_user():
-    try:
-        user = NewUser.objects(
-            username=request.form['login--username'], password=request.form['login--password']).first()
-        if not user:
-            return render_template('login.html', error_message="Invalid username or password")
+    if request.method == 'POST':
+        username = request.form['login--username']
+        password = request.form['login--password']
+        user = NewUser.objects(username=username).first()
+        if user and pbkdf2_sha256.verify(password, user.password):
+            session['username'] = user.username
+            session.permanent = True
+            return render_template('/main.html', user=user.name, username=user.username)
+        else:
+            logging.warning(f"Tentative de connexion échouée pour {username}")
+            return render_template('login.html', error_message="Nom d'utilisateur ou Mot de passe incorrect")
+    else:
+        return render_template('login.html', error_message='')
 
-        # Create Session
-        session['username'] = request.form['login--username']
-        session.permanent = True
-        # Get name from db
-        name = NewUser\
-            .objects(username=session['username'])\
-            .get()\
-            .to_json()['name']
-        # Redirect to Dashboard
-        return render_template('/main.html', user=name, username=session['username'])
-    except:
-        return redirect('/')
 
 
 @app.route('/register')
@@ -100,21 +97,25 @@ def register():
     return render_template('register.html', error_message='')
 
 
+
 @app.route('/register.py', methods=['POST'])
 def register_user():
-    user = NewUser.objects(username=request.form['register--username'])
+    username = request.form['register--username']
+    user = NewUser.objects(username=username).first()
     if user:
         return render_template("register.html", error_message="Le nom d'utilisateur est déjà pris")
     else:
-        print(user)
+        password = request.form['register--password']
+        hashed_password = pbkdf2_sha256.hash(password)
         new_user = NewUser(
             name=request.form['register--name'],
             email=request.form['register--email'],
-            username=request.form['register--username'],
-            password=request.form['register--password'],
+            username=username,
+            password=hashed_password
         )
         new_user.save()
         return render_template('login.html')
+
 
 
 @app.route('/gen_pass')
@@ -172,7 +173,7 @@ def search_password():
 @app.route('/del_pass', methods=['POST'])
 def delete_password():
     if not session['username']:
-        redirect('/')
+        return redirect('/')
     data = request.get_json()
     password = Passwords.objects(
         user=session['username'],

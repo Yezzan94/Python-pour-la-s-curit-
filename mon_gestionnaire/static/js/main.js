@@ -1,67 +1,60 @@
-
-const generate_button = document.querySelector('.nav__register')
-const password_field = document.querySelector('.gen--pass')
+const generate_button = document.querySelector('.nav__register');
+const password_field = document.querySelector('.gen--pass');
 const savepass_form = document.querySelector('.save__pass');
 const genPassBtn = document.querySelector('.btn--one');
 const viewPassBtn = document.querySelector('.btn--two');
 const searchPassBtn = document.querySelector('.btn--three');
-const searchBtn = document.querySelector('.search_password');
-const genPassDiv = document.querySelector('.dashboard__generate--password')
-const viewPassDiv = document.querySelector('.dashboard__view--password')
-const searchPassDiv = document.querySelector('.dashboard__search--password')
+const genPassDiv = document.querySelector('.dashboard__generate--password');
+const viewPassDiv = document.querySelector('.dashboard__view--password');
+const searchPassDiv = document.querySelector('.dashboard__search--password');
 const table = document.querySelector('.password--table');
 const table_two = document.querySelector('.search__pass--table');
-const allDashboardDiv = [genPassDiv, viewPassDiv, searchPassDiv]
-const allDashboardBtn = [genPassBtn, viewPassBtn, searchPassBtn]
+const allDashboardDiv = [genPassDiv, viewPassDiv, searchPassDiv];
+const allDashboardBtn = [genPassBtn, viewPassBtn, searchPassBtn];
 
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
 
-generate_button.addEventListener('click', async function (e) {
-    let data = await fetch('/gen_pass')
-    data = await data.json()
-    password_field.value = data['password']
-})
+generate_button.addEventListener('click', async function () {
+    let response = await fetch('/gen_pass');
+    let data = await response.json();
+    password_field.value = data['password'];
+});
 
 savepass_form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    let message = document.querySelector('.success__message')
+    let message = document.querySelector('.success__message');
     let website_name = document.querySelector('.gen--website');
     let user_name = document.querySelector('.gen--username');
     let generated_password = document.querySelector('.gen--pass');
 
-
-    data = await fetch('/save_pass', {
+    let response = await fetch('/save_pass', {
         method: "POST",
-        body: JSON.stringify(
-            {
-                'user': session_username,
-                'website': website_name.value.toLowerCase(),
-                'username': user_name.value,
-                'password': generated_password.value,
-            }
-        ),
+        body: JSON.stringify({
+            'user': session_username,
+            'website': website_name.value.toLowerCase(),
+            'username': user_name.value,
+            'password': generated_password.value,
+        }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
-    })
+    });
 
-    data = await data.json()
+    let data = await response.json();
 
     if (data['message'] == 'Saved') {
-        [website_name, user_name, generated_password].forEach(input => input.value = null)
-        message.textContent = "Password Saved Succesfully"
-        setTimeout(() => message.textContent = '', 3000)
+        [website_name, user_name, generated_password].forEach(input => input.value = '');
+        message.textContent = "Mot de passe enregistré avec succès";
     } else if (data['message'] == 'Exists') {
-        message.textContent = "Account for website with this username already exists."
-        setTimeout(() => message.textContent = '', 3000)
+        message.textContent = "Un compte existe déjà avec ce nom d'utilisateur.";
     } else {
-        message.textContent = "There was an Error"
-        setTimeout(() => message.textContent = '', 3000)
+        message.textContent = "Oups ! Une erreur est survenue.";
     }
+    setTimeout(() => message.textContent = '', 3000);
+});
 
-})
 
 
 const resetDashboard = function () {
@@ -105,7 +98,7 @@ const addDataToTable = function (data, table) {
                         <td class="username--js">${password.username}</td>
                         <td class="password--js">${password.password}</td>
                         <td>
-                            <button class="delete_password" type="submit">Delete</button>
+                            <button class="delete_password" type="submit">Supprimer</button>
                         </td>
                 </tr>
                 `
@@ -118,10 +111,10 @@ viewPassBtn.addEventListener('click', async function () {
     table.innerHTML = null;
     let table_headers = `
             <tr>
-                <th>Website</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Delete</th>
+                <th>Site Web / Application</th>
+                <th>Nom d'utilisateur</th>
+                <th>Mot de passe</th>
+                <th>Supprimer</th>
             </tr>
             `
     table.insertAdjacentHTML('beforeend', table_headers)
@@ -152,8 +145,8 @@ table_two.addEventListener('click', async (e) => {
         table_two.innerHTML = null;
         let table_headers = `
             <tr>
-                <th colspan="3"><input placeholder="Search for a website" class="search_password_input" type="text"></th>
-                <th><button class="search_password" type="submit">Search</button></th>
+                <th colspan="3"><input placeholder="Rechercher une appli ou un site" class="search_password_input" type="text"></th>
+                <th><button class="search_password" type="submit">Rechercher</button></th>
             </tr>
             `
         table_two.insertAdjacentHTML('beforeend', table_headers)
@@ -170,11 +163,11 @@ searchPassBtn.addEventListener('click', async function () {
     table_two.innerHTML = null;
     let table_headers = `
             <tr>
-                <th colspan="3"><input placeholder="Search for a website" class="search_password_input" type="text"></th>
-                <th><button class="search_password" type="submit">Search</button></th>
+                <th colspan="3"><input placeholder="Rechercher une appli ou un site" class="search_password_input" type="text"></th>
+                <th><button class="search_password" type="submit">Rechercher</button></th>
             </tr>
             `
     table_two.insertAdjacentHTML('beforeend', table_headers)
 })
 
-table.addEventListener('click', deletePassword.bind(this))
+table.addEventListener('click', deletePassword);
