@@ -2,6 +2,5 @@ Flask==2.2.5
 Flask-Session==0.5.0
 Flask-MongoEngine==1.0.0
 mongoengine==0.27.0
-bcrypt
 Flask-WTF
 passlib

@@ -93,3 +93,127 @@ INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 21:49:44] "GET /get_pass HTTP/1.1" 200 
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 21:49:46] "GET /get_pass HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 21:49:47] "POST /del_pass HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 21:50:15] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:26] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:26] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:26] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:28] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:28] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:29] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:29] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:22:29] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:09] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:09] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:09] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:16] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:16] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:16] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:16] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:31] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:31] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:31] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:31] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:31] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:38] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:38] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:38] "GET /js/main.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:38] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:24:48] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:02] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:03] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:03] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:03] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:04] "GET /gen_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:06] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:08] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:15] "POST /del_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:35] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:40] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:44] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:48] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:53] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:25:55] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:04] "POST /search_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:16] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:23] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:39] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:49] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:26:52] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:27:02] "POST /save_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:27:05] "GET /get_pass HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:37] "[32mGET /logout.py HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:37] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:37] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:37] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:40] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:41] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:41] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:41] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:41] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:55] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:56] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:56] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:56] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:28:56] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:06] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:06] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:06] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:06] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:06] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:13] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:13] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:13] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:13] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:13] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:20] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:20] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:20] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:20] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:20] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:27] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:27] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:27] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:27] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:27] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour halabi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:33] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:33] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:33] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:33] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:29:34] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[35m[1mPOST /login.py HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
