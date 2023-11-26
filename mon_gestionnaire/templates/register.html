@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Register</title> <!-- Titre de la page d'inscription -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}"> <!-- Lien vers le fichier CSS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 
+    <title>EpiVault Gestionnaire de mots de passe</title>
 </head>
-<body>
-    <h1>Register</h1> <!-- Titre principal de la page -->
 
-    <!-- Boucle pour afficher les messages flash (erreurs, notifications) -->
-    {% for message in get_flashed_messages() %}
-        <div>{{ message }}</div> <!-- Affichage de chaque message flash -->
-    {% endfor %}
+<body class="registration">
+    <figure class="registration__logo">
+        <a href="{{url_for('home')}}">
+            <img src="images/logo2.png" alt="E Vault">
+        </a>
+    </figure>
 
-    <!-- Formulaire d'inscription -->
-    <form method="post" action="{{ url_for('auth.register') }}">
-        {{ form.hidden_tag() }} <!-- Champ caché pour la protection CSRF -->
+    <h1 class="registration__heading">Inscription de compte</h1>
 
-        <!-- Champ de nom d'utilisateur -->
-        <div>
-            {{ form.username.label }} <!-- Étiquette pour le champ de nom d'utilisateur -->
-            {{ form.username(size=32) }} <!-- Champ de saisie pour le nom d'utilisateur -->
-        </div>
+    <figure class="registration__image">
+        <img src="images/register.jpg" alt="/">
+    </figure>
 
-        <!-- Champ d'email -->
-        <div>
-            {{ form.email.label }} <!-- Étiquette pour le champ d'email -->
-            {{ form.email(size=32) }} <!-- Champ de saisie pour l'email -->
-        </div>
-
-        <!-- Champ de mot de passe -->
-        <div>
-            {{ form.password.label }} <!-- Étiquette pour le champ de mot de passe -->
-            {{ form.password(size=32) }} <!-- Champ de saisie pour le mot de passe -->
-        </div>
-
-        <!-- Champ de confirmation de mot de passe -->
-        <div>
-            {{ form.confirmpassword.label }} <!-- Étiquette pour le champ de confirmation de mot de passe -->
-            {{ form.confirmpassword(size=32) }} <!-- Champ de saisie pour la confirmation de mot de passe -->
-        </div>
-
-        <!-- Bouton de soumission -->
-        <div>
-            <button type="submit">Register</button> <!-- Bouton pour soumettre le formulaire -->
-        </div>
+    <form action="/register.py" class="registration__form" method="post">
+        <p class="register_error"> {{error_message if error_message else '' }} </p>
+        <input type=" text" name="register--name" placeholder="Name" required />
+        <input type="email" name="register--email" placeholder="Email" required />
+        <input type="text" name="register--username" placeholder="Username" required />
+        <input type="password" name="register--password" placeholder="Password" required />
+        <button type="submit" class="nav__register">Inscrivez-vous</button>
+        <p>Already have an account? <a href="{{url_for('login')}}">Connectez-vous</a></p>
     </form>
+
+    <script>
+        const error_message = document.querySelector('.register_error')
+        setTimeout(() => {
+            error_message.textContent = ''
+        }, 5000)
+
+    </script>
 </body>
+
 </html>
