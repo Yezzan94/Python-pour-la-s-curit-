@@ -217,3 +217,288 @@ INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugge
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:33] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:31:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:26] "[35m[1mPOST /login.py HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:26] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:26] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:26] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:28] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:29] "GET /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:29] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:29] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:29] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:30] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:34] "[35m[1mPOST /login.py HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:34] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:37] "[35m[1mPOST /login.py HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:37] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:37] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:37] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:38] "[36mGET /login.py?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:41] "GET /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:41] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:41] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:41] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:41] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:44] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:44] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:44] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:44] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:58] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:58] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:58] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:58] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:39:58] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:40:05] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:40:05] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:40:05] "[36mGET /js/main.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:40:05] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:14] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:14] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:14] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:14] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:17] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:17] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:17] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:17] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:27] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:27] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:27] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:27] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:49:28] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:31] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:31] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:31] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:35] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:35] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:35] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:35] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:35] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour pute
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:40] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:40] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:40] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:40] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:40] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour pute
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:45] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:45] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:45] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:45] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:45] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour pute
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:49] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:49] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:49] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:49] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:50] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:55] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:55] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:55] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:55] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:51:55] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:52:55] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:52:55] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:52:55] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:52:55] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:52:55] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:53:03] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:53:03] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:53:03] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:53:03] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:53:03] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:33] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:33] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:33] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:33] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:36] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:36] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:36] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:36] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:37] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:41] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:41] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:41] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:41] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:41] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:47] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:48] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:48] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:48] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:56] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:56] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:56] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:57:56] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:07] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:08] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:08] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:08] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:08] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour nana
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:14] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:14] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:14] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:14] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:14] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour nana
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:20] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:20] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:20] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:20] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:21] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour nana
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:25] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:25] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:25] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:25] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:25] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:30] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:30] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:30] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:30] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:30] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:35] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:35] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:35] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:35] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 22:58:35] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:24] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:25] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:25] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:25] "[36mGET /images/header.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:50] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:50] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:50] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:02:50] "[36mGET /images/register.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:03] "POST /register.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:03] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:03] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:03] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:03] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour hadbi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:09] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:09] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:09] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:09] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:09] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour hadbi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:14] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:14] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:14] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:14] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:15] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+WARNING:root:Tentative de connexion échouée pour hadbi
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:19] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:19] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:19] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:19] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:19] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:23] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:23] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:24] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:24] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:24] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:51] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:51] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:51] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:51] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:03:51] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:50] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:50] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:50] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:50] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:51] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:55] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:55] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:55] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:55] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:04:55] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:00] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:00] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:00] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:00] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:01] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:08] "POST /login.py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:08] "[36mGET /css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:08] "[36mGET /images/logo2.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:08] "[36mGET /images/login.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Nov/2023 23:06:08] "[36mGET /images/login-background.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/lotfi/python pour la sécurité/Python-pour-la-s-curit-/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 981-586-731

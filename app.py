@@ -37,6 +37,9 @@ class NewUser(db.Document):
     email = db.StringField()
     username = db.StringField()
     password = db.StringField()
+    failed_login_attempts = db.IntField(default=0)
+    last_failed_login = db.DateTimeField()
+
 
     def to_json(self):
         # Méthode pour convertir un utilisateur en JSON
@@ -80,13 +83,27 @@ def login_user():
         username = request.form['login--username']
         password = request.form['login--password']
         user = NewUser.objects(username=username).first()
-        if user and pbkdf2_sha256.verify(password, user.password):
-            session['username'] = user.username
-            session.permanent = True
-            return render_template('/main.html', user=user.name, username=user.username)
-        else:
-            logging.warning(f"Tentative de connexion échouée pour {username}")
-            return render_template('login.html', error_message="Nom d'utilisateur ou Mot de passe incorrect")
+
+        if user:
+            if user and user.failed_login_attempts >= 3:
+        # Vérifier si suffisamment de temps s'est écoulé
+                if user.last_failed_login and datetime.utcnow() - user.last_failed_login > timedelta(minutes=1):
+                    user.failed_login_attempts = 0  # Réinitialiser le compteur
+                else:
+                    return render_template('login.html', error_message="Compte bloqué après 3 tentatives erronées")
+
+            if pbkdf2_sha256.verify(password, user.password):
+                user.failed_login_attempts = 0
+                user.save()
+                session['username'] = user.username
+                session.permanent = True
+                return render_template('/main.html', user=user.name, username=user.username)
+            else:
+                user.failed_login_attempts += 1
+                user.save()
+                logging.warning(f"Tentative de connexion échouée pour {username}")
+        
+        return render_template('login.html', error_message="Nom d'utilisateur ou Mot de passe incorrect")
     else:
         return render_template('login.html', error_message='')
 
