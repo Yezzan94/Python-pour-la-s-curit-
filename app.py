@@ -1,8 +1,12 @@
+#Importation des modules nécessaires
+
 from flask import Flask, render_template, request, session, redirect
 from flask_mongoengine import MongoEngine
 from flask_session import Session
 from modules.PasswordGenerator import PasswordGenerator
+from datetime import timedelta
 
+#Initialisation de l'app Flask
 app = Flask(
     __name__,
     static_url_path='',
@@ -10,21 +14,22 @@ app = Flask(
     template_folder='mon_gestionnaire/templates',
 )
 
-
+# Configuration de la durée de vie de la session (ex: 30 minutes)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=2)
+#Configuration des sessions
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+# Configuration de la base de données MongoDB
 app.config['MONGODB_SETTINGS'] = {
     'db': 'password_manager',
     'host': 'localhost',
     'port': 27017
 }
-db = MongoEngine(app)
+db = MongoEngine(app)# Initialisation de l'ORM MongoEngine avec l'application Flask
 
-# Database
-
-
+# Définition des modèles de données
 class NewUser(db.Document):
     name = db.StringField()
     email = db.StringField()
@@ -32,6 +37,7 @@ class NewUser(db.Document):
     password = db.StringField()
 
     def to_json(self):
+        # Méthode pour convertir un utilisateur en JSON
         return {
             'name': self.name,
             'email': self.email,
@@ -41,6 +47,7 @@ class NewUser(db.Document):
 
 
 class Passwords(db.Document):
+    #Champs pour le modèle password
     user = db.StringField()
     website = db.StringField()
     username = db.StringField()
@@ -76,6 +83,7 @@ def login_user():
 
         # Create Session
         session['username'] = request.form['login--username']
+        session.permanent = True
         # Get name from db
         name = NewUser\
             .objects(username=session['username'])\
@@ -96,7 +104,7 @@ def register():
 def register_user():
     user = NewUser.objects(username=request.form['register--username'])
     if user:
-        return render_template("register.html", error_message="Username already exists")
+        return render_template("register.html", error_message="Le nom d'utilisateur est déjà pris")
     else:
         print(user)
         new_user = NewUser(
