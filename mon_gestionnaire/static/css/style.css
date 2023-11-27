@@ -411,7 +411,7 @@ table,th,td{
 .password--table tr td:nth-child(4){
     padding: 0;
 }
-button.delete_password{
+button.delete_password, #togglePasswords{
     background-color: white;
     padding: 0.5vw 0.8vw;
     width: 100%;
@@ -505,4 +505,8 @@ button.delete_password:hover{
 	to {
 		top: 0%;
 	}
+}
+
+.hidden-password {
+    visibility: hidden;
 }

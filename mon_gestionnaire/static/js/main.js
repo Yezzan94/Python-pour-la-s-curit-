@@ -1,3 +1,5 @@
+
+document.addEventListener('DOMContentLoaded', function () {
 const generate_button = document.querySelector('.nav__register');
 const password_field = document.querySelector('.gen--pass');
 const savepass_form = document.querySelector('.save__pass');
@@ -89,22 +91,32 @@ const deletePassword = async function (e) {
     }
 }
 
+const togglePasswordsVisibility = function() {
+    document.querySelectorAll('.password--js').forEach(function(passwordElement) {
+        passwordElement.classList.toggle('hidden-password');
+    });
+};
+
+
 const addDataToTable = function (data, table) {
     let passwords = data['passwords']
     passwords.forEach(password => {
         const table_row = `
-                <tr>
-                    <td class="website--js">${password.website}</td>
-                        <td class="username--js">${password.username}</td>
-                        <td class="password--js">${password.password}</td>
-                        <td>
-                            <button class="delete_password" type="submit">Supprimer</button>
-                        </td>
-                </tr>
-                `
+            <tr>
+                <td class="website--js">${password.website}</td>
+                <td class="username--js">${password.username}</td>
+                <td>
+                    <span class="password--js hidden-password">${password.password}</span>
+                </td>
+                <td>
+                    <button class="delete_password" type="submit">Supprimer</button>
+                </td>
+            </tr>
+            `
         table.insertAdjacentHTML('beforeend', table_row);
     })
 }
+
 
 viewPassBtn.addEventListener('click', async function () {
     if (this.classList.contains('active')) return;
@@ -171,3 +183,9 @@ searchPassBtn.addEventListener('click', async function () {
 })
 
 table.addEventListener('click', deletePassword);
+
+const toggleButton = document.getElementById('togglePasswords');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', togglePasswordsVisibility);
+    }
+});
