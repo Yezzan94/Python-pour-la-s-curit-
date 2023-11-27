@@ -184,8 +184,22 @@ searchPassBtn.addEventListener('click', async function () {
 
 table.addEventListener('click', deletePassword);
 
-const toggleButton = document.getElementById('togglePasswords');
-    if (toggleButton) {
-        toggleButton.addEventListener('click', togglePasswordsVisibility);
+const togglePasswordsButton = document.getElementById('togglePasswords');
+    const toggleSearchPasswordsButton = document.getElementById('toggleSearchPasswords');
+
+    if (togglePasswordsButton) {
+        togglePasswordsButton.addEventListener('click', function() {
+            document.querySelectorAll('.password--js').forEach(function(el) {
+                el.classList.toggle('hidden-password');
+            });
+        });
+    }
+
+    if (toggleSearchPasswordsButton) {
+        toggleSearchPasswordsButton.addEventListener('click', function() {
+            document.querySelectorAll('.dashboard__search--password .password--js').forEach(function(el) {
+                el.classList.toggle('hidden-password');
+            });
+        });
     }
 });

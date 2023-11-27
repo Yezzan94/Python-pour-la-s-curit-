@@ -411,7 +411,7 @@ table,th,td{
 .password--table tr td:nth-child(4){
     padding: 0;
 }
-button.delete_password, #togglePasswords{
+button.delete_password, #togglePasswords, #toggleSearchPasswords {
     background-color: white;
     padding: 0.5vw 0.8vw;
     width: 100%;
@@ -422,8 +422,9 @@ button.delete_password, #togglePasswords{
     color: hsl(0, 100%, 50%,0.8);
     font-size: 1vw;
 }
-button.delete_password:hover{
-    color:white;
+
+button.delete_password:hover, #togglePasswords:hover, #toggleSearchPasswords:hover {
+    color: white;
     background-color: hsl(0, 100%, 50%,0.8);
 }
 .password--table input{
